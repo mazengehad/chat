@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Quick Chat</title>
+
+    <style>
+     /* Variabls */
+:root {
+	--primary-blue: #2196f3;
+	--dark-blue: #1976d2;
+	--light-blue: #bbdefb;
+	--white: #ffffff;
+	--primary-text: #212121;
+	--secondary-text: #757575;
+	--light-gray: #bdbdbd;
+}
+
+/* Resets */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Helvetica, sans-serifs;
+	color: var(--primary-text);
+}
+
+/* Helper Classes */
+
+/* Layout/Flexbox */
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-grow-1 {
+	flex-grow: 1;
+}
+
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.hidden {
+	display: none;
+}
+
+.mb-2 {
+	margin-bottom: 20px;
+}
+
+/* Text Classes */
+.primary-text {
+	color: var(--primary-text);
+}
+
+.secondary-text {
+	color: var(--secondary-text);
+}
+
+.light-text {
+	color: var(--light-blue);
+}
+
+.text-center {
+	text-align: center;
+}
+
+.mb-2 {
+	margin-bottom: 20px;
+}
+
+h1 {
+	font-size: 48px;
+	font-weight: 300;
+}
+
+#appContainer {
+	height: 100vh;
+	width: 100vw;
+	align-items: stretch;
+	background-color: var(--primary-blue);
+	overflow: hidden;
+}
+
+#mainContent {
+	width: 100%;
+	justify-content: center;
+}
+
+/* Header */
+header {
+	height: 150px;
+	background-color: var(--dark-blue);
+	width: 100%;
+	color: white;
+}
+
+header .container {
+	height: 100%;
+	align-items: left;
+}
+
+/* Login */
+
+#login {
+	background: white;
+	padding: 40px 100px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	margin-top: -100px;
+}
+
+#loginForm {
+	margin-top: 20px;
+}
+
+/* Form Elements */
+
+input {
+	height: 40px;
+	padding: 10px;
+	background-color: var(--light-blue);
+	border: none;
+	color: var(--secondary-text);
+}
+
+button {
+	height: 40px;
+	padding: 0 15px;
+	background-color: var(--primary-blue);
+	color: white;
+	border: none;
+}
+
+/* Chat */
+
+#chat {
+	background: white;
+	margin: 25px 0;
+	padding: 25px 25px;
+	color: white;
+	overflow-y: scroll;
+}
+
+#messageForm {
+	margin-bottom: 25px;
+}
+
+.message {
+	background-color: var(--primary-blue);
+	padding: 20px;
+	width: 80%;
+	margin-bottom: 20px;
+}
+
+.message-right {
+	background: var(--light-blue);
+	color: var(--primary-text);
+	margin-left: 20%;
+}
+
+.message-right .message-date {
+	color: var(--primary-text);
+}
+
+.message-details {
+	margin-bottom: 5px;
+}
+
+.message-author {
+	font-weight: 800;
+}
+
+.message-date {
+	font-weight: 100;
+	font-size: 14px;
+}
+
+.message-content {
+	font-weight: 100;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="appContainer" class="flex-column">
+      <header>
+        <div class="container flex-column flex-center">
+          <h1>Quick Chat</h1>
+          <p class="light-text">The easiest way to get your message across.</p>
+        </div>
+      </header>
+  
+      <div id="mainContent" class="container flex-grow-1 flex-column">
+  
+        <section id="login">
+          <h2 class="text-center">Get Started</h2>
+          <form id="loginForm" class="flex">
+            <input type="text" name="username " id="usernameInput" placeholder="username" class="flex-grow-1">
+            <button id="loginBtn ">Chat!</button>
+          </form>
+        </section>
+  
+        <section id="chat" class="flex-grow-1 flex-column hidden">
+          <div id="messagesList" class="flex-grow-1">
+  
+            <div class="message message-left">
+              <div class="message-details flex">
+                <p class="flex-grow-1 message-author">James Quick</p>
+                <p class="message-date">April 7th 11:50pm</p>
+              </div>
+              <p class="message-content">Lorem ipsum dolor amet wolf pabst lo-fi beard meditation etsy austin health goth.</p>
+            </div>
+  
+            <div class="message message-right">
+              <div class="message-details flex">
+                <p class="flex-grow-1 message-author"></p>
+                <p class="message-date">April 7th 11:50pm</p>
+              </div>
+              <p class="message-content">Lorem ipsum dolor amet wolf pabst lo-fi beard meditation etsy austin health goth.</p>
+            </div>
+  
+            <div class="message message-left">
+              <div class="message-details flex">
+                <p class="flex-grow-1 message-author">James Quick</p>
+                <p class="message-date">April 7th 11:50pm</p>
+              </div>
+              <p class="message-content">Lorem ipsum dolor amet wolf pabst lo-fi beard meditation etsy austin health goth.</p>
+            </div>
+            <p class="secondary-text text-center mb-2">James Quick joined the chat</p>
+          </div>
+          <form id="messageForm" class="flex">
+            <input type="text" name="message " id="usernameInput" class="flex-grow-1">
+            <button id="loginBtn ">Send</button>
+          </form>
+        </section>
+      </div>
+    </div>
+  
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      var socket = io();
+
+      function addemoj(e) {
+        document.getElementById("input").value += e;
+      }
+
+      var names = ["thanaa", "hala", "heba", "sara"];
+      var colors = ["green", "red", "yellow", "blue"];
+      var name = "";
+      var color = "";
+      function takename() {
+        let nameval = document.getElementById("name").value;
+        if (names.includes(nameval)) {
+          name = nameval;
+          color = colors[names.indexOf(name)];
+
+          document.getElementById("con").style.display = "none";
+          document.getElementById("form").style.display = "flex";
+        }
+      }
+
+
+      var messages = document.getElementById("messages");
+      var form = document.getElementById("form");
+      var input = document.getElementById("input");
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        if (input.value) {
+          let msg = {
+            name: name,
+            color: color,
+            value: input.value
+          };
+          socket.emit("chat message", msg);
+          input.value = "";
+        }
+      });
+
+      socket.on("chat message", function(msg) {
+        var item = document.createElement("li");
+        item.innerHTML =
+          "<span style='color:" +
+          msg.color +
+          ";'>" +
+          msg.name +
+          " : </span>" +
+          " " +
+          msg.value;
+        // item.textContent = msg;
+        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    </script>
+  </body>
+</html>
